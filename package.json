@@ -1,0 +1,19 @@
+{
+  "name": "apiTituloQR",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "espress": "0.0.0",
+    "mongoose": "^6.3.5",
+    "nodemon": "^2.0.16"
+  }
+}
