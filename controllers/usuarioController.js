@@ -1,10 +1,16 @@
 const Usuario = require('../models/Usuario');
 
 exports.crearUsuario= async(req,res)=>{
+
+    const {email, password} = req.body
     
     try{
 
-        let usuario;
+        let usuario = await Usuario.findOne({email});
+
+        if(usuario){
+            return res.status(400).json({msg:'El usuario ya existe'});
+        }
 
         //crea el usuario
 
@@ -14,11 +20,11 @@ exports.crearUsuario= async(req,res)=>{
         await usuario.save();
 
         //mensaje de respuesta good
-        res.send('Usuario creado correctamente');
+        res.status(200).json({msg:'Usuario creado correctamente'});
 
     } catch (error) {
         console.log(error);
-        res.status(400).send('Hubo un Error')
+        res.status(400).json({msg:'Hubo un Error'});
     }
 
     
