@@ -5,8 +5,8 @@ const router = express.Router();
 const {check} = require('express-validator');
 const authController = require('../controllers/authController')
 
-//Autenticar un usuario
-//api/autenticar
+//Iniciar sesión de un usuario
+//api/auth
 router.post('/',
     [
         check('email','Agrega un email válido').isEmail(),
