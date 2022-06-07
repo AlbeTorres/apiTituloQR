@@ -13,7 +13,7 @@ const TrabajoSchema = mongoose.Schema({
         type: Array,
         require: true
     },
-    creado:{
+    creador:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'Usuario'
     }

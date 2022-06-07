@@ -15,7 +15,7 @@ const ParticipanteSchema = mongoose.Schema({
     intitucion:{
         type: String,
     },
-    creado:{
+    creador:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'Usuario'
     },
