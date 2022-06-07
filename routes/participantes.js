@@ -17,4 +17,20 @@ router.post('/',auth,
     participantesController.crearParticipante
 );
 
+//obtener todos los participantes
+router.get('/',auth,
+    participantesController.obtenerParticipantes
+    );
+
+//modificar un participante
+router.patch('/:id',auth,
+    participantesController.modificarParticipante
+    );
+
+//eliminar un participante
+router.delete('/:id',auth,
+    participantesController.eliminarParticipante
+    );
+
+
 module.exports= router;
