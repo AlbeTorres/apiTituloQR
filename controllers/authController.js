@@ -11,15 +11,15 @@ exports.autenticarUsuario = async(req, res)=>{
         return res.status(400).json({errores: errores.array()});
     }
 
-    const {email, password} = req.body
+    const {nombre, password} = req.body
 
     try {
 
         //comprobar que existe un usuario registrado
-        let usuario = await Usuario.findOne({email});
+        let usuario = await Usuario.findOne({nombre});
 
         if(!usuario){
-            return res.status(400).json({msg:'No exixte un usuario registrado con ese email'});
+            return res.status(400).json({msg:'No existe un usuario registrado con ese nombre'});
         }
 
         //comprobar que el password es correcto
