@@ -59,9 +59,11 @@ exports.modificarParticipante= async(req, res)=>{
         }
 
         //actualizar partcicipante
-        await Participante.updateOne({_id:req.params.id},{$set:req.body});
+       await Participante.updateOne({_id:req.params.id},{$set:req.body});
 
-        res.status(200).json({msg:'Modificado correctamente'});
+       const resolve = await Participante.findById(req.params.id);
+
+        res.status(200).json(resolve);
         
     } catch (error) {
         console.log(error)

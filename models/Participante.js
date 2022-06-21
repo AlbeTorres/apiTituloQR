@@ -12,7 +12,7 @@ const ParticipanteSchema = mongoose.Schema({
         required:true,
         trim: true
     },
-    intitucion:{
+    institucion:{
         type: String,
     },
     creador:{
