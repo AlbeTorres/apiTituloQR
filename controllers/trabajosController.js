@@ -47,14 +47,16 @@ exports.modificarTrabajo= async(req, res)=>{
     try {
 
         //verificar que el trabajo existe
-        const trabajoFind = Trabajo.find(req.params.id);
+        const trabajoFind = await Trabajo.findById(req.params.id);
         if(!trabajoFind){
             return res.status(404).json({msg:'No existe el trabajo a modificar'});
         }
 
         //actualizar trabajo
         await Trabajo.updateOne({_id:req.params.id},{$set: req.body})
-        res.status(200).json({msg:'Modificado correctamente'});
+
+        const resolve = await Trabajo.findById(req.params.id);
+        res.status(200).json(resolve);
          
     } catch (error) {
        console.log(error)
